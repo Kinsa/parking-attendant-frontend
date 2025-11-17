@@ -25,6 +25,9 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // const apiUrl = `http://localhost:8000/api/v1/vehicle?vrm=${encodeURIComponent(vrm)}&query_to=${encodeURIComponent(queryTo)}&query_from=${encodeURIComponent(queryFrom)}`;
+  const apiUrl = `https://parking.kinsacreative.com/api/v1/vehicle?vrm=${encodeURIComponent(vrm)}`;
+
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -40,9 +43,7 @@ export default function Home() {
 
     try {
       // Replace with your actual API URL
-      const response = await fetch(
-          `http://localhost:8000/api/v1/vehicle?vrm=${encodeURIComponent(vrm)}&query_to=${encodeURIComponent(queryTo)}&query_from=${encodeURIComponent(queryFrom)}`
-      );
+      const response = await fetch(apiUrl);
 
       if (!response.ok) {
         throw new Error('API request failed');
