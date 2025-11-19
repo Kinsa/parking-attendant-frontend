@@ -24,6 +24,8 @@ jobs:
 
       - run: pnpm install
       - run: pnpm build
+        env:
+          NEXT_PUBLIC_API_URL: https://parking.kinsacreative.com
 
       - name: Deploy to server
         uses: easingthemes/ssh-deploy@main
