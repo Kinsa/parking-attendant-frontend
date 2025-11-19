@@ -32,6 +32,8 @@ jobs:
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
           TARGET: /var/www/frontend.parking.kinsacreative.com
+          ARGS: -rlDzvc --delete
+          SOURCE: ./
 
       - name: Restart PM2
         uses: appleboy/ssh-action@master
