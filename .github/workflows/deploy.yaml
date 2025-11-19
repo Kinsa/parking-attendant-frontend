@@ -45,5 +45,5 @@ jobs:
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             cd /var/www/frontend.parking.kinsacreative.com/
-            pnpm install --prod --frozen-lockfile
-            pm2 restart parking-kiosk
+            pnpm install --prod
+            pm2 restart parking-attendant-frontend || pm2 start pnpm --name "parking-attendant-frontend" -- start
